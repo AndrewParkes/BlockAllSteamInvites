@@ -4,7 +4,10 @@
 // @version      0.1
 // @description  Blocks all steam users much like the ignore all steam invites
 // @author       Andrew Parkes -Ant_Shrew-
-// @namespace 	 https://greasyfork.org/users/10599
+// @namespace 	 https://github.com/AndrewParkes/BlockAllSteamInvites
+// @download	 https://raw.githubusercontent.com/AndrewParkes/BlockAllSteamInvites/master/Blocks%20all%20steam%20invites.user.js
+// @updateURL    https://raw.githubusercontent.com/AndrewParkes/BlockAllSteamInvites/master/Blocks%20all%20steam%20invites.user.js
+// @downloadURL  https://raw.githubusercontent.com/AndrewParkes/BlockAllSteamInvites/master/Blocks%20all%20steam%20invites.user.js
 // ==/UserScript==
 
 /*
