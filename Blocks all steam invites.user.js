@@ -4,7 +4,6 @@
 // @version      0.1
 // @description  Blocks all steam users much like the ignore all steam invites
 // @author       Andrew Parkes -Ant_Shrew-
-// @namespace https://greasyfork.org/users/10599
 // ==/UserScript==
 
 /*
@@ -14,7 +13,7 @@ I do not mind if you use or edit this code but please leave mention of me in the
 There are errors when clicking on Block all but it does not seem to impact the outcome of the code such as:
 Refused to set unsafe header "Content-Length"
 
-Please send feedback if you find that it does not work or runs into errors
+Please send feedback if you find that it does not work or runs into errors: 
 
 Thanks
 */
