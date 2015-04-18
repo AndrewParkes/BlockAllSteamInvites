@@ -3,6 +3,8 @@
 // @include      *steamcommunity.com/*/home/invites*
 // @version      0.1
 // @description  Blocks all steam users much like the ignore all steam invites
+// @updateURL    https://github.com/AndrewParkes/BlockAllSteamInvites.git
+// @downloadURL  https://github.com/AndrewParkes/BlockAllSteamInvites.git
 // @author       Andrew Parkes -Ant_Shrew-
 // ==/UserScript==
 
