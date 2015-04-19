@@ -30,7 +30,8 @@ if (typeof(element) != 'undefined' && element !== null)
 {
 
     //adds the Block all tag next to the | Ignore all tag
-    document.getElementById('pinvites_ignoreall').innerHTML =document.getElementById('pinvites_ignoreall').innerHTML +'<span class="infoBreak" >&nbsp;&nbsp;|&nbsp;&nbsp;</span>' +'<a id="Block_All" class="linkStandard">Block All</a>' +'<span class="infoBreak" >&nbsp;&nbsp;|&nbsp;&nbsp;</span>' +'<a id="Block_All_level_0" class="linkStandard">Block All Level 0</a>';
+    document.getElementById('pinvites_ignoreall').innerHTML =document.getElementById('pinvites_ignoreall').innerHTML +'<span class="infoBreak" >&nbsp;&nbsp;|&nbsp;&nbsp;</span>' +'<a id="Block_All" class="linkStandard">Block All</a>' +
+        '<span class="infoBreak" >&nbsp;&nbsp;|&nbsp;&nbsp;</span>' +'<a id="Block_All_level_0" class="linkStandard">Block Lvl </a>' +'<input type="text" id="inputLevel">';
 
     //adds the clickable function to Block all 
     var block = document.getElementById('Block_All');
@@ -68,7 +69,7 @@ function blockAllLevel0(zEvent)
             var resBox=document.getElementById('inviterBlockIcon');
             
             //alert(userAccount+" "+elemslvl[counter].innerHTML);
-            if(elemslvl[counter].innerHTML==0)
+            if(elemslvl[counter].innerHTML<=document.getElementById('inputLevel').value)
             {
                 //alert(userAccount+" "+elemslvl[counter].innerHTML);
                 
