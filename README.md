@@ -1,7 +1,7 @@
 # BlockAllSteamInvites
 
-Steam script to block friend requests. 
-Allows user specific value to block all users under that value.
+Steam script to block friend requests
+Allows user specific value to block all users under that value
 
 # Donations
 
@@ -21,13 +21,13 @@ This script is free and open source and it will stay that way. If you like it an
 
 **Firefox:** You will obviously need the [Greasemonkey addon](https://addons.mozilla.org/en-US/firefox/addon/greasemonkey/) to be able to install and use this script. If you are using Firefox 30+ you need to make sure you use Greasemonkey version 2.2+ or the script won't work.
 
-#Future additions:
+# Future additions:
 
 Being able to block only:
 
 Private accounts
 VAC or Trading banned accounts
-Long used account
+Long time used account
 
 Thanks Hope you like it :D
 

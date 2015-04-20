@@ -11,18 +11,6 @@
 
 // ==/UserScript==
 
-/*
-PLEASE READ:
-I do not mind if you use or edit this code but please leave mention of me in the new code
-
-There are errors when clicking on Block all but it does not seem to impact the outcome of the code such as:
-Refused to set unsafe header "Content-Length"
-
-Please send feedback if you find that it does not work or runs into errors: 
-
-Thanks
-*/
-
 //check to see if you have any pending invites
 var element =  document.getElementById('pinvites_ignoreall');
 if (typeof(element) != 'undefined' && element !== null)
@@ -31,7 +19,10 @@ if (typeof(element) != 'undefined' && element !== null)
     //adds the Block all tag next to the | Ignore all tag
     document.getElementById('pinvites_ignoreall').innerHTML =document.getElementById('pinvites_ignoreall').innerHTML + '<span class="infoBreak" >&nbsp;&nbsp;|&nbsp;&nbsp;</span>' +'<a id="Block_All" class="linkStandard">Block All</a>';
     document.getElementById('pinvites_ignoreall').innerHTML =document.getElementById('pinvites_ignoreall').innerHTML + '<span class="infoBreak" >&nbsp;&nbsp;|&nbsp;&nbsp;</span>' +'<a id="Block_All_level_0" class="linkStandard">Block Lvl </a>' + '<input type="text" id="inputLevel" value="0" style="width:23px;" onkeypress="return event.charCode >= 48 && event.charCode <= 57" maxlength="3">';
-
+    document.getElementById('pinvites_ignoreall').innerHTML =document.getElementById('pinvites_ignoreall').innerHTML +'<a id="donate" title="Show your appreciation for the script" href="https://github.com/AndrewParkes/BlockAllSteamInvites/blob/master/README.md#donations" target="_blank" style="align: right; float: right;"> Donate&nbsp;&nbsp;&nbsp;&nbsp;</a>';
+    document.getElementById('pinvites_ignoreall').innerHTML =document.getElementById('pinvites_ignoreall').innerHTML +'<a style="align: right; float: right; color: red;">?&nbsp;</a>';
+    //<style> a#donate:before { color: red; content: '?'; display: block; font-size: 1.5em;}</style>
+    
     //adds the clickable function to Block all 
     var block = document.getElementById('Block_All');
     if (block) 
