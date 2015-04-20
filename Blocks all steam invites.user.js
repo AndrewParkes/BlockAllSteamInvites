@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Blocks all steam invites
 // @include      *steamcommunity.com/*/home/invites*
-// @version      0.2
+// @version      0.3
 // @description  Blocks all steam users much like the ignore all steam invites
 // @author       Andrew Parkes -Ant_Shrew-
 // @namespace    https://greasyfork.org/users/10599
@@ -30,7 +30,7 @@ if (typeof(element) != 'undefined' && element !== null)
 
     //adds the Block all tag next to the | Ignore all tag
     document.getElementById('pinvites_ignoreall').innerHTML =document.getElementById('pinvites_ignoreall').innerHTML + '<span class="infoBreak" >&nbsp;&nbsp;|&nbsp;&nbsp;</span>' +'<a id="Block_All" class="linkStandard">Block All</a>';
-    document.getElementById('pinvites_ignoreall').innerHTML =document.getElementById('pinvites_ignoreall').innerHTML + '<span class="infoBreak" >&nbsp;&nbsp;|&nbsp;&nbsp;</span>' +'<a id="Block_All_level_0" class="linkStandard">Block Lvl </a>' + '<input type="text" id="inputLevel" style="width:23px;" onkeypress="return event.charCode >= 48 && event.charCode <= 57" maxlength="3">';
+    document.getElementById('pinvites_ignoreall').innerHTML =document.getElementById('pinvites_ignoreall').innerHTML + '<span class="infoBreak" >&nbsp;&nbsp;|&nbsp;&nbsp;</span>' +'<a id="Block_All_level_0" class="linkStandard">Block Lvl </a>' + '<input type="text" id="inputLevel" value="0" style="width:23px;" onkeypress="return event.charCode >= 48 && event.charCode <= 57" maxlength="3">';
 
     //adds the clickable function to Block all 
     var block = document.getElementById('Block_All');
@@ -68,14 +68,16 @@ function blockAllLevel0(zEvent)
             var resBox=document.getElementById('inviterBlockIcon');
             
             //alert(userAccount+" "+elemslvl[counter].innerHTML);
-            if(elemslvl[counter].innerHTML<=document.getElementById('inputLevel').value)
+
+            if(parseInt(elemslvl[counter].innerHTML)<=parseInt(document.getElementById('inputLevel').value))
             {
-                //alert(userAccount+" "+elemslvl[counter].innerHTML);
-                
+                //alert();
+
                 var userAccount=((elems[i]+"").substr(26)).substr(0,((elems[i]+"").substr(26)).indexOf(",")-1);
                 //calles steams block function
                 FriendAccept(userAccount , 'block');
             }
+            
             counter++;
         }
     }
