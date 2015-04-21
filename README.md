@@ -47,3 +47,5 @@ Thanks Hope you like it :D
 * non setup accounts are not recognised by the private user blocker
 * Some errors due appear in the console but do not affect functionality
 * Processing users is a little slow at time due to the number of users in your list
+
+If you find any bugs or issues or have helpful advice please add them [here](https://github.com/AndrewParkes/BlockAllSteamInvites/issues).
