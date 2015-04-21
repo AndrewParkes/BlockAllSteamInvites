@@ -3,7 +3,13 @@
 Steam script to block friend requests:
 * Allows user specific value to block all users under that value.
 * Able to block only private profiles.
+* 
+# Features:
 
+* All the added buttons -Block Private- and -Block level [0]-
+
+    ![added buttons and locations](http://i.imgur.com/wLlphoT.png)
+    
 # Donations
 
 This script is free and open source and it will stay that way. If you like it and want to show your appreciation for more updates please donate:
