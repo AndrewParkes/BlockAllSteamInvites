@@ -1,7 +1,8 @@
 # BlockAllSteamInvites
 
-Steam script to block friend requests
-Allows user specific value to block all users under that value
+Steam script to block friend requests.
+Allows user specific value to block all users under that value.
+Able to block only private profiles.
 
 # Donations
 
@@ -25,9 +26,14 @@ This script is free and open source and it will stay that way. If you like it an
 
 Being able to block only:
 
-Private accounts
-VAC or Trading banned accounts
-Long time used account
+* Private accounts.
+* VAC or Trading banned accounts.
+* Long time used account.
+* Accounts with items in their inventory.
+* Accounts with no games.
+* Account with very few hours being active.
+* Account with very few game hours.
+* Bot ban that looks at multiple pieces of information to decide if a user is a bot.
 
 Thanks Hope you like it :D
 
