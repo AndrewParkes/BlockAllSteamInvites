@@ -1,16 +1,19 @@
-# BlockAllSteamInvites
+# BlockAllSteamInvites:
 
 Steam script to block friend requests:
 * Allows user specific value to block all users under that value.
 * Able to block only private profiles.
+* Able to block only VAC or Trading banned accounts.
+
+If you find any bugs or issues or have helpful advice please add them [here](https://github.com/AndrewParkes/BlockAllSteamInvites/issues).
 
 # Features:
 
-* All the added buttons -Block Private- and -Block level [0]-
+* All the added buttons -Block Private- and -Block level [0]- (image out of date -block banned is also added-)
 
     ![added buttons and locations](http://i.imgur.com/wLlphoT.png)
     
-# Donations
+# Donations:
 
 This script is free and open source and it will stay that way. If you like it and want to show your appreciation for more updates please donate:
 
@@ -32,20 +35,20 @@ This script is free and open source and it will stay that way. If you like it an
 
 Being able to block only:
 
-* VAC or Trading banned accounts.
 * Long time used account.
 * Accounts with items in their inventory.
 * Accounts with no games.
-* Account with very few hours being active.
+* Account with very few hours being active (currently being tested but seems to block all accounts).
 * Account with very few game hours.
-* Bot ban that looks at multiple pieces of information to decide if a user is a bot.
+* Bot ban that looks at multiple pieces of information to decide if a user is a bot. (will implement when all above has been completed)
 
 Thanks Hope you like it :D
 
 # Bugs
 
-* non setup accounts are not recognised by the private user blocker
+* non setup accounts are not recognised by the blockers (will add a special case for this)
 * Some errors due appear in the console but do not affect functionality
 * Processing users is a little slow at time due to the number of users in your list
+* seems that at times in 0.6 nothing happens. Please refresh the page or reopen the web browser to fix it
 
 If you find any bugs or issues or have helpful advice please add them [here](https://github.com/AndrewParkes/BlockAllSteamInvites/issues).
