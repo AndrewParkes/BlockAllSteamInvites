@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Blocks all steam invites
 // @include      *steamcommunity.com/*/home/invites*
-// @version      0.6
+// @version      0.7
 // @description  Blocks all steam users much like the ignore all steam invites
 // @author       Andrew Parkes -Ant_Shrew-
 // @namespace    https://greasyfork.org/users/10599
@@ -19,11 +19,12 @@ if (typeof(element) != 'undefined' && element !== null)
     //adds the Block all tag next to the | Ignore all tag
     document.getElementById('pinvites_ignoreall').innerHTML =document.getElementById('pinvites_ignoreall').innerHTML + '<span class="infoBreak" >&nbsp;&nbsp;|&nbsp;&nbsp;</span>' +'<a id="Block_All" class="linkStandard">Block Private</a>';
     document.getElementById('pinvites_ignoreall').innerHTML =document.getElementById('pinvites_ignoreall').innerHTML + '<span class="infoBreak" >&nbsp;&nbsp;|&nbsp;&nbsp;</span>' +'<a id="Block_Banned" class="linkStandard">Block Banned</a>';
+    document.getElementById('pinvites_ignoreall').innerHTML =document.getElementById('pinvites_ignoreall').innerHTML + '<span class="infoBreak" >&nbsp;&nbsp;|&nbsp;&nbsp;</span>' +'<a id="Block_Non_Setup" class="linkStandard">Block Non-setup</a>';
     document.getElementById('pinvites_ignoreall').innerHTML =document.getElementById('pinvites_ignoreall').innerHTML + '<span class="infoBreak" >&nbsp;&nbsp;|&nbsp;&nbsp;</span>' +'<a id="Block_All_level_0" class="linkStandard">Block Lvl </a>' + '<input type="text" id="inputLevel" value="0" style="width:23px;" onkeypress="return event.charCode >= 48 && event.charCode <= 57" maxlength="3">';
+    
     document.getElementById('pinvites_ignoreall').innerHTML =document.getElementById('pinvites_ignoreall').innerHTML +'<a id="donate" title="Show your appreciation for the script" href="https://github.com/AndrewParkes/BlockAllSteamInvites/blob/master/README.md#donations" target="_blank" style="align: right; float: right;"> Donate&nbsp;&nbsp;&nbsp;&nbsp;</a>';
     document.getElementById('pinvites_ignoreall').innerHTML =document.getElementById('pinvites_ignoreall').innerHTML +'<a style="align: right; float: right; color: red;">&hearts;&nbsp;</a>';
     
-    //document.getElementById('pinvites_ignoreall').innerHTML =document.getElementById('pinvites_ignoreall').innerHTML + '<span class="infoBreak" >&nbsp;&nbsp;|&nbsp;&nbsp;</span>' +'<a id="Block_Inactive" class="linkStandard">Block Inactive</a>';
     
     //adds the clickable function to Block all 
     var block = document.getElementById('Block_All');
@@ -44,10 +45,10 @@ if (typeof(element) != 'undefined' && element !== null)
         blockbanned.addEventListener ("click", blockbannedAcc , false);
     }
     
-    var blockinact = document.getElementById('Block_Inactive');
-    if (blockinact) 
+    var blocknonsetup = document.getElementById('Block_Non_Setup');
+    if (blocknonsetup) 
     {
-        blockinact.addEventListener ("click", blockInactive , false);
+        blocknonsetup.addEventListener ("click", blockNonSetupAcc , false);
     }
 
 }
@@ -132,8 +133,8 @@ function blockbannedAcc(zEvent)
         }
     }
 }
-/*
-function blockInactive(zEvent) 
+
+function blockNonSetupAcc(zEvent) 
 {
     var xmlhttp = new XMLHttpRequest(); 
     var elems = document.getElementsByClassName('linkStandard');
@@ -151,7 +152,7 @@ function blockInactive(zEvent)
                 var url ='http://steamcommunity.com/profiles/' +userAccount+ '?xml=1'
                 xmlhttp.open("GET",url,false);
                 xmlhttp.send();
-                if(xmlhttp.responseText.indexOf("<hoursPlayed2Wk>0.0</hoursPlayed2Wk>")>-1)
+                if(xmlhttp.responseText.indexOf("[unassigned]")>-1)
                 {
                     FriendAccept(userAccount , 'block');
                 }
@@ -159,5 +160,5 @@ function blockInactive(zEvent)
         }
     }
 }
-*/
+
 
