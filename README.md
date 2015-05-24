@@ -42,6 +42,7 @@ Being able to block only:
 * Account with very few hours being active (currently being tested but seems to block all accounts).
 * Account with very few game hours.
 * Bot ban that looks at multiple pieces of information to decide if a user is a bot. (will implement when all above has been completed)
+* Adding a auto refresh and block to site (suggested by EnricoBara)
 
 Thanks Hope you like it :D
 
