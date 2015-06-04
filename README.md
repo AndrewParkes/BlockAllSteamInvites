@@ -36,21 +36,19 @@ This script is free and open source and it will stay that way. If you like it an
 
 Being able to block only:
 
-* Long time used account.
-* Accounts with items in their inventory.
+* Accounts with no items in their inventory.
 * Accounts with no games.
-* Account with very few hours being active (currently being tested but seems to block all accounts).
+* Account with very few hours being active.
 * Account with very few game hours.
 * Bot ban that looks at multiple pieces of information to decide if a user is a bot. (will implement when all above has been completed)
-* Adding a auto refresh and block to site (suggested by EnricoBara)
+* Adding a auto refresh and block to site (suggested by EnricoBara)(working on it trying to create invisible radio buttons)
 
 Thanks Hope you like it :D
 
 # Bugs
 
-* non setup accounts are not recognised by the blockers (will add a special case for this)
-* Some errors due appear in the console but do not affect functionality
+* Some errors do appear in the console but do not affect functionality(Restart browser to clear them)
 * Processing users is a little slow at time due to the number of users in your list
-* seems that at times in 0.6 nothing happens. Please refresh the page or reopen the web browser to fix it
+* seems that at times in 0.6 and later, nothing happens. Please refresh the page or reopen the web browser to fix it
 
 If you find any bugs or issues or have helpful advice please add them [here](https://github.com/AndrewParkes/BlockAllSteamInvites/issues).
