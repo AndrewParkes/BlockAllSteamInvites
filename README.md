@@ -13,7 +13,7 @@ If you find any bugs or issues or have helpful advice please add them [here](htt
 
 ![added buttons and locations](http://i.imgur.com/LKJTmTL.png)
     
-    * All the added buttons -Block Private-,  -Block Banned-,  -Block Non-Setup- and -Block level [0]-
+    * All the added buttons Block Private,  Block Banned,  Block Non-Setup and Block level [0]
     * Highlighted items are items that have been double clicked and will be called on page refresh
     
 # Donations:
@@ -51,6 +51,7 @@ Thanks Hope you like it :D
 * Some errors do appear in the console but do not affect functionality(Restart browser to clear them)
 * Processing users is a little slow at time due to the number of users in your list
 * seems that at times in 0.6 and later, nothing happens. Please refresh the page or reopen the web browser to fix it
-* Fuction call on refresh has not been tested 
+* Fuction call on refresh has not been tested
+* Loading may be slow if you have a lot of user requests (want to make functions more efficient)
 
 If you find any bugs or issues or have helpful advice please add them [here](https://github.com/AndrewParkes/BlockAllSteamInvites/issues).
