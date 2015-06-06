@@ -5,12 +5,13 @@ Steam script to block friend requests:
 * Able to block only private profiles.
 * Able to block only VAC or Trading banned accounts.
 * Able to block non-setup accounts.
+* Double clicking a function will force the call of the function on page refresh (suggested by EnricoBara)
 
 If you find any bugs or issues or have helpful advice please add them [here](https://github.com/AndrewParkes/BlockAllSteamInvites/issues).
 
 # Features:
 
-* All the added buttons -Block Private- and -Block level [0]- (image out of date -block banned is also added-)
+* All the added buttons -Block Private- and -Block level [0]- (image out of date -block banned is also added- will display the auto blocker on page refresh soon)
 
     ![added buttons and locations](http://i.imgur.com/wLlphoT.png)
     
@@ -41,7 +42,6 @@ Being able to block only:
 * Account with very few hours being active.
 * Account with very few game hours.
 * Bot ban that looks at multiple pieces of information to decide if a user is a bot. (will implement when all above has been completed)
-* Adding a auto refresh and block to site (suggested by EnricoBara)(working on it trying to create invisible radio buttons)
 
 Thanks Hope you like it :D
 
@@ -50,5 +50,6 @@ Thanks Hope you like it :D
 * Some errors do appear in the console but do not affect functionality(Restart browser to clear them)
 * Processing users is a little slow at time due to the number of users in your list
 * seems that at times in 0.6 and later, nothing happens. Please refresh the page or reopen the web browser to fix it
+* Fuction call on refresh has not been tested 
 
 If you find any bugs or issues or have helpful advice please add them [here](https://github.com/AndrewParkes/BlockAllSteamInvites/issues).
