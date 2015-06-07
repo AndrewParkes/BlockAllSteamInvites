@@ -49,7 +49,7 @@ Thanks Hope you like it :D
 
 * Some errors do appear in the console but do not affect functionality(Restart browser to clear them)
 * Processing users is a little slow at time due to the number of users in your list
-* seems that at times in 0.6 and later, nothing happens. Please refresh the page or reopen the web browser to fix it
+* Seems that at times in 0.6 and later, nothing happens. Please refresh the page or reopen the web browser to fix it
 * Fuction call on refresh has not been tested
 * Loading may be slow if you have a lot of user requests (want to make functions more efficient)
 
