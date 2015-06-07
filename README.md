@@ -12,9 +12,8 @@ If you find any bugs or issues or have helpful advice please add them [here](htt
 # Features:
 
 ![added buttons and locations](http://i.imgur.com/LKJTmTL.png)
-    
-    * All the added buttons Block Private,  Block Banned,  Block Non-Setup and Block level [0]
-    * Highlighted items are items that have been double clicked and will be called on page refresh
+* All the added buttons Block Private,  Block Banned,  Block Non-Setup and Block level [0]
+* Highlighted items are items that have been double clicked and will be called on page refresh
     
 # Donations:
 
