@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Blocks all steam invites
 // @include      *steamcommunity.com/*/home/invites*
-// @version      0.9
+// @version      0.10
 // @description  Blocks all steam users much like the ignore all steam invites
 // @author       Andrew Parkes -Ant_Shrew-
 // @namespace    https://greasyfork.org/users/10599
@@ -29,6 +29,8 @@ if (typeof(element) != 'undefined' && element !== null)
     var blockPrivateCheckBox=0;
     var blockBannedCheckBox=0;
     var blockNonSetupCheckBox=0;
+    var blocklvlCheckBoxValue=-1;
+    var blocklvlCheckBox=0;
     
     
     //adds the clickable function to Block all 
@@ -41,6 +43,7 @@ if (typeof(element) != 'undefined' && element !== null)
         if(getCookie("blockPrivateCheckBox")==1)
         {
             blockPrivateCheckBox=1;
+            blocklvlCheckBoxValue=getCookie("blocklvlCheckBoxValue");
             colorBlue("Block_Private");
         }
     }
@@ -49,6 +52,13 @@ if (typeof(element) != 'undefined' && element !== null)
     if (blocklvl0) 
     {
         blocklvl0.addEventListener ("click", blockAllLevel0 , 0);
+        blocklvl0.addEventListener ("dblclick", blocklvlCheck , 0);
+        
+        if(getCookie("blocklvlCheckBox")==1)
+        {
+            blocklvlCheckBox=1;
+            colorBlue("Block_All_level_0");
+        }
     }
     
     var blockbanned = document.getElementById('Block_Banned');
@@ -92,6 +102,12 @@ if (typeof(element) != 'undefined' && element !== null)
         blockNonSetupAcc(0);
     }
     
+    if(blocklvlCheckBox==1)
+    {
+        document.getElementById('inputLevel').value=blocklvlCheckBoxValue;
+        blockAllLevel0(0);
+    }
+    
 }
 
 function colorBlue(name)
@@ -108,6 +124,25 @@ function uncolorBlue(name)
     text.style.textShadow = "0px 0px 0 CornflowerBlue ";
     text.style.mozTextShadow = "0px 0px 0 CornflowerBlue ";
     text.style.webkitTextShadow = "0px 0px 0 CornflowerBlue ";
+}
+
+function blocklvlCheck()
+{
+    if(blocklvlCheckBox===0)
+    {
+        blocklvlCheckBox=1;
+        colorBlue("Block_All_level_0");
+    }
+    else if(blocklvlCheckBox===1)
+    {
+        blocklvlCheckBox=0;
+        uncolorBlue("Block_All_level_0");
+    }
+    
+    blocklvlCheckBoxValue=document.getElementById('inputLevel').value;
+    setCookie( "blocklvlCheckBoxValue", document.getElementById('inputLevel').value, 10 );
+    setCookie( "blocklvlCheckBox", blocklvlCheckBox, 10 );
+    
 }
 
 function blockPrivateCheck()
@@ -312,4 +347,3 @@ function stopRefresh()
     var element =  document.getElementById('BG_bottom');
     element.innerHTML="";
 }*/
-
