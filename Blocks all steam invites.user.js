@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Blocks all steam invites
 // @include      *steamcommunity.com/*/home/invites*
-// @version      0.11
+// @version      0.10
 // @description  Blocks all steam users much like the ignore all steam invites
 // @author       Andrew Parkes -Ant_Shrew-
 // @namespace    https://greasyfork.org/users/10599
@@ -12,20 +12,27 @@
 
 // ==/UserScript==
 
+
+
+
+
+
 //check to see if you have any pending invites
 var element =  document.getElementById('pinvites_ignoreall');
 if (typeof(element) != 'undefined' && element !== null)
 {
 
     //adds the Block all tag next to the | Ignore all tag
-    document.getElementById('pinvites_ignoreall').innerHTML += '<span class="infoBreak" >&nbsp;&nbsp;|&nbsp;&nbsp;</span>' +'<a id="Block_Private" class="linkStandard">Block Private</a>';
-    document.getElementById('pinvites_ignoreall').innerHTML += '<span class="infoBreak" >&nbsp;&nbsp;|&nbsp;&nbsp;</span>' +'<a id="Block_Banned" class="linkStandard">Block Banned</a>';
-    document.getElementById('pinvites_ignoreall').innerHTML += '<span class="infoBreak" >&nbsp;&nbsp;|&nbsp;&nbsp;</span>' +'<a id="Block_Non_Setup" class="linkStandard">Block Non-setup</a>';
-    document.getElementById('pinvites_ignoreall').innerHTML += '<span class="infoBreak" >&nbsp;&nbsp;|&nbsp;&nbsp;</span>' +'<a id="Block_bad_comments" class="linkStandard">Block bad comments</a>';
-    document.getElementById('pinvites_ignoreall').innerHTML += '<span class="infoBreak" >&nbsp;&nbsp;|&nbsp;&nbsp;</span>' +'<a id="Block_All_level_0" class="linkStandard">Block Lvl </a>' + '<input type="text" id="inputLevel" value="0" style="width:23px;" onkeypress="return event.charCode >= 48 && event.charCode <= 57" maxlength="3">';
+    document.getElementById('pinvites_ignoreall').innerHTML =document.getElementById('pinvites_ignoreall').innerHTML + '<span class="infoBreak" >&nbsp;&nbsp;|&nbsp;&nbsp;</span>' +'<a id="Block_Private" class="linkStandard">Block Private</a>';
+    document.getElementById('pinvites_ignoreall').innerHTML =document.getElementById('pinvites_ignoreall').innerHTML + '<span class="infoBreak" >&nbsp;&nbsp;|&nbsp;&nbsp;</span>' +'<a id="Block_Banned" class="linkStandard">Block Banned</a>';
+    document.getElementById('pinvites_ignoreall').innerHTML =document.getElementById('pinvites_ignoreall').innerHTML + '<span class="infoBreak" >&nbsp;&nbsp;|&nbsp;&nbsp;</span>' +'<a id="Block_Non_Setup" class="linkStandard">Block Non-setup</a>';
+    document.getElementById('pinvites_ignoreall').innerHTML =document.getElementById('pinvites_ignoreall').innerHTML + '<span class="infoBreak" >&nbsp;&nbsp;|&nbsp;&nbsp;</span>' +'<a id="Block_bad_comments" class="linkStandard">Block Bad Comments</a>';
+    document.getElementById('pinvites_ignoreall').innerHTML =document.getElementById('pinvites_ignoreall').innerHTML + '<span class="infoBreak" >&nbsp;&nbsp;|&nbsp;&nbsp;</span>' +'<a id="Block_All_level_0" class="linkStandard">Block Lvl </a>' + '<input type="text" id="inputLevel" value="0" style="width:23px;" onkeypress="return event.charCode >= 48 && event.charCode <= 57" maxlength="3">';
 
-    document.getElementById('pinvites_ignoreall').innerHTML += '<a id="donate" title="Show your appreciation for the script" href="https://github.com/AndrewParkes/BlockAllSteamInvites/blob/master/README.md#donations" target="_blank" style="align: right; float: right;"> Donate&nbsp;&nbsp;&nbsp;&nbsp;</a>';
-    document.getElementById('pinvites_ignoreall').innerHTML += '<a style="align: right; float: right; color: red;">&hearts;&nbsp;</a>';
+    
+    document.getElementById('pinvites_ignoreall').innerHTML =document.getElementById('pinvites_ignoreall').innerHTML +'<a id="donate" title="Show your appreciation for the script" href="https://github.com/AndrewParkes/BlockAllSteamInvites/blob/master/README.md#donations" target="_blank" style="align: right; float: right;"> Donate&nbsp;&nbsp;&nbsp;&nbsp;</a>';
+    document.getElementById('pinvites_ignoreall').innerHTML =document.getElementById('pinvites_ignoreall').innerHTML +'<a style="align: right; float: right; color: red;">&hearts;&nbsp;</a>';
+    
     
     //cookie variables
     var blockPrivateCheckBox=0;
@@ -48,6 +55,8 @@ if (typeof(element) != 'undefined' && element !== null)
             blockPrivateCheckBox=1;
             blocklvlCheckBoxValue=getCookie("blocklvlCheckBoxValue");
             colorBlue("Block_Private");
+            setCookie( "blocklvlCheckBoxValue", document.getElementById('inputLevel').value, 36 * 3600 );
+            setCookie( "blockPrivateCheckBox", blockPrivateCheckBox, 24 * 3600 );
         }
     }
     
@@ -61,6 +70,7 @@ if (typeof(element) != 'undefined' && element !== null)
         {
             blocklvlCheckBox=1;
             colorBlue("Block_All_level_0");
+            setCookie( "blocklvlCheckBox", blocklvlCheckBox, 24 * 3600 );
         }
     }
     
@@ -74,6 +84,7 @@ if (typeof(element) != 'undefined' && element !== null)
         {
             blockBannedCheckBox=1;
             colorBlue("Block_Banned");
+            setCookie( "blockBannedCheckBox", blockBannedCheckBox, 24 * 3600 );
         }
     }
     
@@ -87,6 +98,7 @@ if (typeof(element) != 'undefined' && element !== null)
         {
             blockNonSetupCheckBox=1;
             colorBlue("Block_Non_Setup");
+            setCookie( "blockNonSetupCheckBox", blockNonSetupCheckBox, 24 * 3600 );
         }
     }
     
@@ -100,6 +112,7 @@ if (typeof(element) != 'undefined' && element !== null)
         {
             blockbadcommentBox=1;
             colorBlue("Block_bad_comments");
+            setCookie( "blockbadcommentBox", blockbadcommentBox, 24 * 3600 );
         }
     }
 
@@ -162,8 +175,6 @@ function blocklvlCheck()
     {
         blocklvlCheckBox=0;
         uncolorBlue("Block_All_level_0");
-        delCookie ("blocklvlCheckBoxValue");
-        delCookie ("blocklvlCheckBox");
     }
     
     blocklvlCheckBoxValue=document.getElementById('inputLevel').value;
@@ -183,7 +194,6 @@ function blockPrivateCheck()
     {
         blockPrivateCheckBox=0;
         uncolorBlue("Block_Private");
-        delCookie ("blockPrivateCheckBox");
     }
     setCookie( "blockPrivateCheckBox", blockPrivateCheckBox, 36 * 3600 );
 }
@@ -199,7 +209,6 @@ function blockBannedCheck()
     {
         blockBannedCheckBox=0;
         uncolorBlue("Block_Banned");
-        delCookie ("blockBannedCheckBox");
     }
     setCookie( "blockBannedCheckBox", blockBannedCheckBox, 36 * 3600 );
 }
@@ -215,7 +224,6 @@ function blockNonSetupCheck()
     {
         blockNonSetupCheckBox=0;
         uncolorBlue("Block_Non_Setup");
-        delCookie ("blockNonSetupCheckBox");
     }
     setCookie( "blockNonSetupCheckBox", blockNonSetupCheckBox, 36 * 3600 );
 }
@@ -231,7 +239,6 @@ function blockbadcommentCheck()
     {
         blockbadcommentBox=0;
         uncolorBlue("Block_bad_comments");
-        delCookie ("blockbadcommentBox");
     }
     setCookie( "blockbadcommentBox", blockbadcommentBox, 36 * 3600 );
 }
@@ -294,6 +301,7 @@ function blockAllLevel0(zEvent)
             }
         }
     }
+    
 }
 
 
@@ -388,14 +396,17 @@ function blockbadcomment(zEvent)
                 //aquires the users steam id
                 var userAccount=((elems[i]+"").substr(26)).substr(0,((elems[i]+"").substr(26)).indexOf(",")-1);
                 var url ='http://steamcommunity.com/profiles/' +userAccount+ '/allcomments';
-                var comments=httpGet(url)+ "".toUpperCase();
+                var comments=(httpGet(url)+ "").toUpperCase();
                 
-                var goodComments=(comments.split("+REP").length - 1);
-                var badComments=(comments.split("-REP").length - 1)+(comments.split("SCAMMER").length - 1)+(comments.split("PHISHER").length - 1)+(comments.split("PHISHING").length - 1)+(comments.split(" BOT ").length - 1);
+                var goodComments=(comments.split("+REP").length - 1)+(comments.split("+ REP").length - 1);
+                alert(goodComments);
+                var badComments=(comments.split("-REP").length - 1)+ (comments.split("- REP").length - 1)+(comments.split("SCAM").length - 1)+(comments.split("PHISH").length - 1)+(comments.split(" BOT ").length - 1);
+                alert(badComments);
                 if(badComments-goodComments>=3)
                 {
                     FriendAccept(userAccount , 'block');
                 }
+                alert(badComments-goodComments);
             }
     }
 }
