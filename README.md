@@ -5,7 +5,8 @@ Steam script to block friend requests:
 * Able to block only private profiles.
 * Able to block only VAC or Trading banned accounts.
 * Able to block non-setup accounts.
-* Double clicking a function will force the call of the function on page refresh (suggested by EnricoBara)
+* Able to block accounts with bad comments (-rep, scammer, bot and phisher). (suggested by EnricoBara)
+* Double clicking a function will force the call of the function on page refresh. (suggested by EnricoBara)
 
 If you find any bugs or issues or have helpful advice please add them [here](https://github.com/AndrewParkes/BlockAllSteamInvites/issues).
 
@@ -48,9 +49,9 @@ Thanks Hope you like it :D
 # Bugs
 
 * Some errors do appear in the console but do not affect functionality(Restart browser to clear them)
-* Processing users is a little slow at time due to the number of users in your list
-* Seems that at times in 0.6 and later, nothing happens. Please refresh the page or reopen the web browser to fix it
-* Fuction call on refresh has not been tested
+* Processing users is a little slow at time due to the number of users in your list and number of functions being called
+* Seems that at times in 0.6 and later, nothing happens. Please reopen the web browser to fix it
 * Loading may be slow if you have a lot of user requests (want to make functions more efficient)
+* Blocking bad comment users has not been fully tested
 
 If you find any bugs or issues or have helpful advice please add them [here](https://github.com/AndrewParkes/BlockAllSteamInvites/issues).
