@@ -18,16 +18,14 @@ if (typeof(element) != 'undefined' && element !== null)
 {
 
     //adds the Block all tag next to the | Ignore all tag
-    document.getElementById('pinvites_ignoreall').innerHTML =document.getElementById('pinvites_ignoreall').innerHTML + '<span class="infoBreak" >&nbsp;&nbsp;|&nbsp;&nbsp;</span>' +'<a id="Block_Private" class="linkStandard">Block Private</a>';
-    document.getElementById('pinvites_ignoreall').innerHTML =document.getElementById('pinvites_ignoreall').innerHTML + '<span class="infoBreak" >&nbsp;&nbsp;|&nbsp;&nbsp;</span>' +'<a id="Block_Banned" class="linkStandard">Block Banned</a>';
-    document.getElementById('pinvites_ignoreall').innerHTML =document.getElementById('pinvites_ignoreall').innerHTML + '<span class="infoBreak" >&nbsp;&nbsp;|&nbsp;&nbsp;</span>' +'<a id="Block_Non_Setup" class="linkStandard">Block Non-setup</a>';
-    document.getElementById('pinvites_ignoreall').innerHTML =document.getElementById('pinvites_ignoreall').innerHTML + '<span class="infoBreak" >&nbsp;&nbsp;|&nbsp;&nbsp;</span>' +'<a id="Block_bad_comments" class="linkStandard">Block bad comments</a>';
-    document.getElementById('pinvites_ignoreall').innerHTML =document.getElementById('pinvites_ignoreall').innerHTML + '<span class="infoBreak" >&nbsp;&nbsp;|&nbsp;&nbsp;</span>' +'<a id="Block_All_level_0" class="linkStandard">Block Lvl </a>' + '<input type="text" id="inputLevel" value="0" style="width:23px;" onkeypress="return event.charCode >= 48 && event.charCode <= 57" maxlength="3">';
+    document.getElementById('pinvites_ignoreall').innerHTML += '<span class="infoBreak" >&nbsp;&nbsp;|&nbsp;&nbsp;</span>' +'<a id="Block_Private" class="linkStandard">Block Private</a>';
+    document.getElementById('pinvites_ignoreall').innerHTML += '<span class="infoBreak" >&nbsp;&nbsp;|&nbsp;&nbsp;</span>' +'<a id="Block_Banned" class="linkStandard">Block Banned</a>';
+    document.getElementById('pinvites_ignoreall').innerHTML += '<span class="infoBreak" >&nbsp;&nbsp;|&nbsp;&nbsp;</span>' +'<a id="Block_Non_Setup" class="linkStandard">Block Non-setup</a>';
+    document.getElementById('pinvites_ignoreall').innerHTML += '<span class="infoBreak" >&nbsp;&nbsp;|&nbsp;&nbsp;</span>' +'<a id="Block_bad_comments" class="linkStandard">Block bad comments</a>';
+    document.getElementById('pinvites_ignoreall').innerHTML += '<span class="infoBreak" >&nbsp;&nbsp;|&nbsp;&nbsp;</span>' +'<a id="Block_All_level_0" class="linkStandard">Block Lvl </a>' + '<input type="text" id="inputLevel" value="0" style="width:23px;" onkeypress="return event.charCode >= 48 && event.charCode <= 57" maxlength="3">';
 
-    
-    document.getElementById('pinvites_ignoreall').innerHTML =document.getElementById('pinvites_ignoreall').innerHTML +'<a id="donate" title="Show your appreciation for the script" href="https://github.com/AndrewParkes/BlockAllSteamInvites/blob/master/README.md#donations" target="_blank" style="align: right; float: right;"> Donate&nbsp;&nbsp;&nbsp;&nbsp;</a>';
-    document.getElementById('pinvites_ignoreall').innerHTML =document.getElementById('pinvites_ignoreall').innerHTML +'<a style="align: right; float: right; color: red;">&hearts;&nbsp;</a>';
-    
+    document.getElementById('pinvites_ignoreall').innerHTML += '<a id="donate" title="Show your appreciation for the script" href="https://github.com/AndrewParkes/BlockAllSteamInvites/blob/master/README.md#donations" target="_blank" style="align: right; float: right;"> Donate&nbsp;&nbsp;&nbsp;&nbsp;</a>';
+    document.getElementById('pinvites_ignoreall').innerHTML += '<a style="align: right; float: right; color: red;">&hearts;&nbsp;</a>';
     
     //cookie variables
     var blockPrivateCheckBox=0;
@@ -164,6 +162,8 @@ function blocklvlCheck()
     {
         blocklvlCheckBox=0;
         uncolorBlue("Block_All_level_0");
+        delCookie ("blocklvlCheckBoxValue");
+        delCookie ("blocklvlCheckBox");
     }
     
     blocklvlCheckBoxValue=document.getElementById('inputLevel').value;
@@ -183,6 +183,7 @@ function blockPrivateCheck()
     {
         blockPrivateCheckBox=0;
         uncolorBlue("Block_Private");
+        delCookie ("blockPrivateCheckBox");
     }
     setCookie( "blockPrivateCheckBox", blockPrivateCheckBox, 36 * 3600 );
 }
@@ -198,6 +199,7 @@ function blockBannedCheck()
     {
         blockBannedCheckBox=0;
         uncolorBlue("Block_Banned");
+        delCookie ("blockBannedCheckBox");
     }
     setCookie( "blockBannedCheckBox", blockBannedCheckBox, 36 * 3600 );
 }
@@ -213,6 +215,7 @@ function blockNonSetupCheck()
     {
         blockNonSetupCheckBox=0;
         uncolorBlue("Block_Non_Setup");
+        delCookie ("blockNonSetupCheckBox");
     }
     setCookie( "blockNonSetupCheckBox", blockNonSetupCheckBox, 36 * 3600 );
 }
@@ -228,6 +231,7 @@ function blockbadcommentCheck()
     {
         blockbadcommentBox=0;
         uncolorBlue("Block_bad_comments");
+        delCookie ("blockbadcommentBox");
     }
     setCookie( "blockbadcommentBox", blockbadcommentBox, 36 * 3600 );
 }
