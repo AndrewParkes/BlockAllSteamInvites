@@ -399,14 +399,11 @@ function blockbadcomment(zEvent)
                 var comments=(httpGet(url)+ "").toUpperCase();
                 
                 var goodComments=(comments.split("+REP").length - 1)+(comments.split("+ REP").length - 1);
-                alert(goodComments);
                 var badComments=(comments.split("-REP").length - 1)+ (comments.split("- REP").length - 1)+(comments.split("SCAM").length - 1)+(comments.split("PHISH").length - 1)+(comments.split(" BOT ").length - 1);
-                alert(badComments);
                 if(badComments-goodComments>=3)
                 {
                     FriendAccept(userAccount , 'block');
                 }
-                alert(badComments-goodComments);
             }
     }
 }
