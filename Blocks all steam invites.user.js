@@ -21,16 +21,21 @@ if (typeof(element) != 'undefined' && element !== null)
     document.getElementById('pinvites_ignoreall').innerHTML =document.getElementById('pinvites_ignoreall').innerHTML + '<span class="infoBreak" >&nbsp;&nbsp;|&nbsp;&nbsp;</span>' +'<a id="Block_Private" class="linkStandard">Block Private</a>';
     document.getElementById('pinvites_ignoreall').innerHTML =document.getElementById('pinvites_ignoreall').innerHTML + '<span class="infoBreak" >&nbsp;&nbsp;|&nbsp;&nbsp;</span>' +'<a id="Block_Banned" class="linkStandard">Block Banned</a>';
     document.getElementById('pinvites_ignoreall').innerHTML =document.getElementById('pinvites_ignoreall').innerHTML + '<span class="infoBreak" >&nbsp;&nbsp;|&nbsp;&nbsp;</span>' +'<a id="Block_Non_Setup" class="linkStandard">Block Non-setup</a>';
+    document.getElementById('pinvites_ignoreall').innerHTML =document.getElementById('pinvites_ignoreall').innerHTML + '<span class="infoBreak" >&nbsp;&nbsp;|&nbsp;&nbsp;</span>' +'<a id="Block_bad_comments" class="linkStandard">Block bad comments</a>';
     document.getElementById('pinvites_ignoreall').innerHTML =document.getElementById('pinvites_ignoreall').innerHTML + '<span class="infoBreak" >&nbsp;&nbsp;|&nbsp;&nbsp;</span>' +'<a id="Block_All_level_0" class="linkStandard">Block Lvl </a>' + '<input type="text" id="inputLevel" value="0" style="width:23px;" onkeypress="return event.charCode >= 48 && event.charCode <= 57" maxlength="3">';
+
     
     document.getElementById('pinvites_ignoreall').innerHTML =document.getElementById('pinvites_ignoreall').innerHTML +'<a id="donate" title="Show your appreciation for the script" href="https://github.com/AndrewParkes/BlockAllSteamInvites/blob/master/README.md#donations" target="_blank" style="align: right; float: right;"> Donate&nbsp;&nbsp;&nbsp;&nbsp;</a>';
     document.getElementById('pinvites_ignoreall').innerHTML =document.getElementById('pinvites_ignoreall').innerHTML +'<a style="align: right; float: right; color: red;">&hearts;&nbsp;</a>';
     
+    
+    //cookie variables
     var blockPrivateCheckBox=0;
     var blockBannedCheckBox=0;
     var blockNonSetupCheckBox=0;
     var blocklvlCheckBoxValue=-1;
     var blocklvlCheckBox=0;
+    var blockbadcommentBox=0;
     
     
     //adds the clickable function to Block all 
@@ -86,6 +91,19 @@ if (typeof(element) != 'undefined' && element !== null)
             colorBlue("Block_Non_Setup");
         }
     }
+    
+    var blockbadcomments = document.getElementById('Block_bad_comments');
+    if (blockbadcomments) 
+    {
+        blockbadcomments.addEventListener ("click", blockbadcomment , 0);
+        blockbadcomments.addEventListener ("dblclick", blockbadcommentCheck , 0);
+    
+        if(getCookie("blockbadcommentBox")==1)
+        {
+            blockbadcommentBox=1;
+            colorBlue("Block_bad_comments");
+        }
+    }
 
     if(blockPrivateCheckBox==1)
     {
@@ -108,7 +126,14 @@ if (typeof(element) != 'undefined' && element !== null)
         blockAllLevel0(0);
     }
     
+    if(blockbadcommentBox==1)
+    {
+        blockbadcomment(0);
+    }
+    
 }
+
+//------------------------Double clicked styling
 
 function colorBlue(name)
 {
@@ -126,6 +151,8 @@ function uncolorBlue(name)
     text.style.webkitTextShadow = "0px 0px 0 CornflowerBlue ";
 }
 
+//------------------------Cookie checker
+
 function blocklvlCheck()
 {
     if(blocklvlCheckBox===0)
@@ -140,8 +167,8 @@ function blocklvlCheck()
     }
     
     blocklvlCheckBoxValue=document.getElementById('inputLevel').value;
-    setCookie( "blocklvlCheckBoxValue", document.getElementById('inputLevel').value, 10 );
-    setCookie( "blocklvlCheckBox", blocklvlCheckBox, 10 );
+    setCookie( "blocklvlCheckBoxValue", document.getElementById('inputLevel').value, 36 * 3600 );
+    setCookie( "blocklvlCheckBox", blocklvlCheckBox, 24 * 3600 );
     
 }
 
@@ -157,7 +184,7 @@ function blockPrivateCheck()
         blockPrivateCheckBox=0;
         uncolorBlue("Block_Private");
     }
-    setCookie( "blockPrivateCheckBox", blockPrivateCheckBox, 10 );
+    setCookie( "blockPrivateCheckBox", blockPrivateCheckBox, 36 * 3600 );
 }
 
 function blockBannedCheck()
@@ -172,7 +199,7 @@ function blockBannedCheck()
         blockBannedCheckBox=0;
         uncolorBlue("Block_Banned");
     }
-    setCookie( "blockBannedCheckBox", blockBannedCheckBox, 10 );
+    setCookie( "blockBannedCheckBox", blockBannedCheckBox, 36 * 3600 );
 }
 
 function blockNonSetupCheck()
@@ -187,8 +214,25 @@ function blockNonSetupCheck()
         blockNonSetupCheckBox=0;
         uncolorBlue("Block_Non_Setup");
     }
-    setCookie( "blockNonSetupCheckBox", blockNonSetupCheckBox, 10 );
+    setCookie( "blockNonSetupCheckBox", blockNonSetupCheckBox, 36 * 3600 );
 }
+
+function blockbadcommentCheck()
+{
+    if(blockbadcommentBox===0)
+    {
+        blockbadcommentBox=1;
+        colorBlue("Block_bad_comments");
+    }
+    else if(blockbadcommentBox===1)
+    {
+        blockbadcommentBox=0;
+        uncolorBlue("Block_bad_comments");
+    }
+    setCookie( "blockbadcommentBox", blockbadcommentBox, 36 * 3600 );
+}
+
+//--------------------------Cookie stuff
 
 function getCookie(NameOfCookie){
     if (document.cookie.length > 0) {              
@@ -203,12 +247,12 @@ function getCookie(NameOfCookie){
   return null;
 }
 
-function setCookie(NameOfCookie, value, expiredays) {
+function setCookie(NameOfCookie, value, expireHours) {
 var ExpireDate = new Date ();
-ExpireDate.setTime(ExpireDate.getTime() + (expiredays * 24 * 3600 * 1000));
+ExpireDate.setTime(ExpireDate.getTime() + (expireHours * 1000));
 
   document.cookie = NameOfCookie + "=" + escape(value) + 
-  ((expiredays == null) ? "" : "; expires=" + ExpireDate.toGMTString());
+  ((expireHours == null) ? "" : "; expires=" + ExpireDate.toGMTString());
 }
 
 function delCookie (NameOfCookie) {
@@ -218,14 +262,7 @@ function delCookie (NameOfCookie) {
   }
 }
 
-function DoTheCookieStuff()
-{
-username=getCookie('username');
-if (username!=null) {alert('Hi there '+username+' - Good to see you again!')}
-else {username=prompt('Hi - this is your first visit to my page - please enter your name.',"");setCookie('username',username,365)}
-}
-
-//-----------------------------------------------------------------------------------------
+//----------------------my functions
 
 function blockAllLevel0(zEvent) 
 {
@@ -335,15 +372,36 @@ function blockNonSetupAcc(zEvent)
     }
 }
 
-/*var element =  document.getElementById('BG_bottom');
-
-var blocknonsetup = document.getElementById('Block_Non_Setup');
-    if (blocknonsetup) 
-    {
-        blocknonsetup.addEventListener ("click", blockNonSetupAcc , 0);
-    }
-function stopRefresh()
+function blockbadcomment(zEvent) 
 {
-    var element =  document.getElementById('BG_bottom');
-    element.innerHTML="";
-}*/
+    var elems = document.getElementsByClassName('linkStandard');
+    for (var i in elems) 
+    {
+        
+        //finds the functions that contain block
+            if((elems[i]+"").indexOf("block") !=-1)
+            {
+                //aquires the users steam id
+                var userAccount=((elems[i]+"").substr(26)).substr(0,((elems[i]+"").substr(26)).indexOf(",")-1);
+                var url ='http://steamcommunity.com/profiles/' +userAccount+ '/allcomments';
+                var comments=httpGet(url)+ "".toUpperCase();
+                
+                var goodComments=(comments.split("+REP").length - 1);
+                var badComments=(comments.split("-REP").length - 1)+(comments.split("SCAMMER").length - 1)+(comments.split("PHISHER").length - 1)+(comments.split("PHISHING").length - 1)+(comments.split(" BOT ").length - 1);
+                if(badComments-goodComments>=3)
+                {
+                    FriendAccept(userAccount , 'block');
+                }
+            }
+    }
+}
+
+function httpGet(theUrl)
+  {
+    var xmlHttp = null;
+
+    xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", theUrl, false );
+    xmlHttp.send( null );
+    return xmlHttp.responseText;
+  }
