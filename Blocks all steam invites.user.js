@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Blocks all steam invites
 // @include      *steamcommunity.com/*/home/invites*
-// @version      0.15
+// @version      0.16
 // @description  Blocks all steam users much like the ignore all steam invites
 // @author       Andrew Parkes -Ant_Shrew-
 // @namespace    https://greasyfork.org/users/10599
@@ -393,8 +393,7 @@ function blockbadcomment(zEvent)
                 var url ='http://steamcommunity.com/profiles/' +userAccount+ '/allcomments';
                 var comments=(httpGet(url)+ "").toUpperCase();
 
-                comments=comments.substring(comments.indexOf('<div class="commentthread_comment_author">')-1);
-                comments=comments.substring(0,comments.indexOf('<div class="commentthread_footer">')-1);
+                comments=comments.substring(comments.indexOf('div class="commentthread_comment_author"')-1,comments.indexOf('div class="commentthread_footer"')-1);
 
                 var goodComments=(comments.split("+REP").length - 1)+(comments.split("+ REP").length - 1);
                 var badComments=(comments.split("-REP").length - 1)+ (comments.split("- REP").length - 1)+(comments.split("SCAM").length - 1)+(comments.split("SPAM").length - 1)+(comments.split("PHISH").length - 1)+(comments.split("BOT").length - 1);
