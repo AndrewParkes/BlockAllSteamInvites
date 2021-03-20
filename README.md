@@ -15,18 +15,6 @@ If you find any bugs or issues or have helpful advice please add them [here](htt
 ![added buttons and locations](http://i.imgur.com/LKJTmTL.png)
 * All the added buttons Block Private,  Block Banned,  Block Non-Setup and Block level [0]
 * Highlighted items are items that have been double clicked and will be called on page refresh
-    
-# Donations:
-
-This script is free and open source and it will stay that way. If you like it and want to show your appreciation for more updates please donate:
-
-* [Paypal](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=KHACYDQRDN2ZN&lc=ZA&item_name=Ant_Shrew&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted) - You want to buy me a beer or a cup of hot chocolate? Awesome! Thank you! :)
-
-    [![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=KHACYDQRDN2ZN&lc=ZA&item_name=Ant_Shrew&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted)
-
-* [Steam Trade link](https://steamcommunity.com/tradeoffer/new/?partner=25926715&token=KvygAoxv) - Steam items/keys/sets/games/etc. anything is welcomed as a sign of your appreciation.
-
-    [![Donate on Steam](https://i.imgur.com/C4RiaHy.png)](https://steamcommunity.com/tradeoffer/new/?partner=25926715&token=KvygAoxv)
 
 # Installation:
 
